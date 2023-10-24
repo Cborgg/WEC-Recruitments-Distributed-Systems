@@ -6,3 +6,10 @@ Compile the C++ code, ensure that all the computer_[0-4].txt files are in the sa
 operations and the files computer_[0-4].txt would be updated. The operations are also logged into log.txt which you can tail to check the progress.
 
 # **Working**
+Each client is simulated as a thread (5 of them in total). The clients randomize the file operation and use message queues to communicate "an event". The message includes
+the id of the thread originating the message, the operation (read/write/update) and its own vector clock. For the sake of simplicity reads are always done from the 
+beginning of the file and writes are at the end of the file. When the peer threads receive the message, it first extracts the vector clock from the message and checks if it can be accepted by using the causal algorithm. If it can't be accepted the message is queued. If it is accepted then the requested operation is performed. Once the operation is performed the thread sends a notification to the logger thread for logging the operation. The logger thread is a simple implementation which waits for a message and logs it to the file "log.txt".
+
+Note that when a thread sends the broadcast message it is received by itself as well. So causal alogrithm implementation handles this by always accepting messages 
+originated by itself. Mutexes are used when queuing messages to maintain consistency. Conditional variables are used instead of a blind while loop when waiting for
+messages to avoid wastage of cpu cycles.
