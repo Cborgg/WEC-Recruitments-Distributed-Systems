@@ -14,4 +14,8 @@ Note that when a thread sends the broadcast message it is received by itself as 
 originated by itself. Mutexes are used when queuing messages to maintain consistency. Conditional variables are used instead of a blind while loop when waiting for
 messages to avoid wastage of CPU cycles. When update operation is done the code handles the case to only write within the EOF (i.e. it does not write past the end).
 
+# Major Data Structures
+  per_thd[MAX_COMPUTERS]: Array of structures representing thread-specific information for different computers.
+  vector_clocks: A map where the key represents computer IDs, and each computer has associated vector clocks for tracking events.
+  logger_info: Struct containing a message queue, a mutex for synchronization, a condition variable, and a flag for the logger thread.
 
