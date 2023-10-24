@@ -183,6 +183,8 @@ void client_thread(int computer_id) {
 
         //        if (i == computer_id)
         //            continue;
+                //extra braces are put here so that when lock goes out of scope, it ceases to exist and hence the lock gets unlocked
+        //if we don't put extra braces the lock will remain for all iterations of i and it won't unlock until it reaches the last thread(i.e. when i=MAX_COMPUTERS-1)
                 { 
                 std::lock_guard<std::mutex> lock(per_thd[i].mtx);
 
