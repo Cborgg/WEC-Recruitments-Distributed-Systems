@@ -94,7 +94,7 @@ void perform_read (int thd_id)
                     
     long      fsize = get_file_size(fio);
     if (fsize < READ_SIZE) {
-        cout << "-E- File " << vector_clocks[thd_id].fname << "too small" << endl;
+        cout << "-ERROR- File " << vector_clocks[thd_id].fname << " EOF reached " << endl;
         return;
     }
     cout << "size is: " << fsize << " bytes in thd " << thd_id << endl;
