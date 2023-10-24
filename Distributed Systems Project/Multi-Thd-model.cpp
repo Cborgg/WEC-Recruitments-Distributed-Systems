@@ -210,7 +210,7 @@ void client_thread(int computer_id) {
                         // Message arrived too early, push it back into the queue
                         per_thd[computer_id].messageQueue.push(rcvd_);
                         
-                        break;
+                        continue;
                     }
 
                     // Perform operation based on operation type
