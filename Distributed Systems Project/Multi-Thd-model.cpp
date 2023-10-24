@@ -205,7 +205,7 @@ void client_thread(int computer_id) {
                     
                     rcvd_ = per_thd[computer_id].messageQueue.front();
                     per_thd[computer_id].messageQueue.pop();
-                
+                    //running causal algorithm
                     if (!accept_msg(computer_id, &rcvd_)) {
                         // Message arrived too early, push it back into the queue
                         per_thd[computer_id].messageQueue.push(rcvd_);
