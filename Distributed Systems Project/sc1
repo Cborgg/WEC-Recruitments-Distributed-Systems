@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#while [ 1 ]
+#do
+#kill -9 15722
+#done
+cp Org-sample-file.txt computer_0.txt
+cp Org-sample-file.txt computer_1.txt
+cp Org-sample-file.txt computer_2.txt
+cp Org-sample-file.txt computer_3.txt
+cp Org-sample-file.txt computer_4.txt
