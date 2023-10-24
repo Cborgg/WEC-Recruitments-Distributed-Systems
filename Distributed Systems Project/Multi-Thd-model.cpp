@@ -128,10 +128,6 @@ void perform_write (int thd_id, int offset, string buf)
     fio.close();
 }
 
-void file_sync (int src_id)
-{
-    // Take the mutex before sync'ing the files
-}
 
 void log_operation(int comp_id, int oper)
 {
