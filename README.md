@@ -12,6 +12,6 @@ beginning of the file and writes are at the end of the file. When the peer threa
 
 Note that when a thread sends the broadcast message it is received by itself as well. So causal alogrithm implementation handles this by always accepting messages 
 originated by itself. Mutexes are used when queuing messages to maintain consistency. Conditional variables are used instead of a blind while loop when waiting for
-messages to avoid wastage of cpu cycles. When update operation is done the code handles the case to only write within the EOF (i.e. it does not write past the end).
+messages to avoid wastage of CPU cycles. When update operation is done the code handles the case to only write within the EOF (i.e. it does not write past the end).
 
 
