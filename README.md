@@ -16,6 +16,8 @@ messages to avoid wastage of CPU cycles. When update operation is done the code 
 
 # Major Data Structures
 **per_thd[MAX_COMPUTERS]:** Array of structures representing thread-specific information for different computers. <br>
+<br>
   **vector_clocks:** A map where the key represents computer IDs, and each computer has associated vector clocks for tracking events. <br>
+<br>
   **logger_info:** Struct containing a message queue, a mutex for synchronization, a condition variable, and a flag for the logger thread. <br>
 
